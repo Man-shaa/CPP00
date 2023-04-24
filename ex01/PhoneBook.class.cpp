@@ -6,7 +6,7 @@
 /*   By: msharifi <msharifi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 16:48:08 by msharifi          #+#    #+#             */
-/*   Updated: 2023/04/24 16:16:21 by msharifi         ###   ########.fr       */
+/*   Updated: 2023/04/24 16:24:46 by msharifi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,16 @@ void	PhoneBook::printChosenContact(void)
 	int			index;
 
 	getline(std::cin, input);
-	if (input.size() != 1)
-		return ;
-	if (input.compare("0") >= 0 && input.compare("0") < 9)
+	while (input.size() != 1 || input.compare("0") < 0 || input.compare("0") >= 8)
 	{
-		stream.clear();
-		stream.str(input);
-		stream >> index;
-		contact[index].PrintContact();
+		std::cout << "Index must be between 0 and 7" << std::endl;
+		getline(std::cin, input);
 	}
+	stream.clear();
+	stream.str(input);
+	stream >> index;
+	if (index >= nContact)
+		std::cout << "Contact doesn't exist, make sure to create it before !" << std::endl;
+	else
+		contact[index].PrintContact();
 }
