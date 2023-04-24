@@ -6,7 +6,7 @@
 /*   By: msharifi <msharifi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 16:58:52 by msharifi          #+#    #+#             */
-/*   Updated: 2023/04/22 19:54:27 by msharifi         ###   ########.fr       */
+/*   Updated: 2023/04/24 14:42:45 by msharifi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,20 @@
 # define PHONEBOOK_CLASS_HPP
 
 #include <iostream>
+#include "Contact.class.hpp"
 
 class PhoneBook
 {
+	private:
+		Contact 	contact[8];
+		int	nContact;
+
 	public:
 
-		PhoneBook(void);
+		PhoneBook();
 		~PhoneBook(void);
-		void	PrintHello(void);
+		void	CatchInstruction(void);
+		void	PrintAllContact(void);
 };
 
 #endif

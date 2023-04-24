@@ -6,7 +6,7 @@
 /*   By: msharifi <msharifi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 16:48:08 by msharifi          #+#    #+#             */
-/*   Updated: 2023/04/22 19:53:00 by msharifi         ###   ########.fr       */
+/*   Updated: 2023/04/24 14:47:17 by msharifi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,29 @@ PhoneBook::~PhoneBook(void)
 	return ;
 }
 
-void	PhoneBook::PrintHello(void)
+void	PhoneBook::CatchInstruction(void)
 {
-	std::cout << "Hello World from instance PhoneBook !" << std::endl;
-	return ;
+	std::string	input;
+
+	nContact = 0;
+	while (input.compare("EXIT") != 0)
+	{
+		if (input.compare("ADD") == 0)
+		{
+			std::cout << "add a new contact" << std::endl;
+			nContact++;
+			std::cout << nContact << std::endl;
+			contact[0].InitContact();
+			contact[0].PrintContact();
+		}
+		if (input.compare("SEARCH") == 0)
+			std::cout << "search a contact and print it" << std::endl;
+		// while (input.empty() == true)
+		getline(std::cin, input);
+	}
 }
+
+// void	PhoneBook::PrintAllContact(void)
+// {
+// 	while (contact)
+// }
