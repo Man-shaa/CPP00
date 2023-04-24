@@ -6,7 +6,7 @@
 /*   By: msharifi <msharifi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 16:48:08 by msharifi          #+#    #+#             */
-/*   Updated: 2023/04/24 16:24:46 by msharifi         ###   ########.fr       */
+/*   Updated: 2023/04/24 16:30:30 by msharifi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,17 @@ void	PhoneBook::CatchInstruction(void)
 
 	nContact = 0;
 	newIndex = 0;
-	while (input.empty() == true)
-		getline(std::cin, input);
+	getline(std::cin, input);
 	while (input.compare("EXIT") != 0)
 	{
 		if (input.compare("ADD") == 0)
 		{
 			newIndex = nContact % 8;
-			std::cout << "add a new contact" << std::endl;
-			std::cout << nContact << std::endl;
 			contact[newIndex].InitContact(newIndex);
 			nContact++;
 		}
 		if (input.compare("SEARCH") == 0)
 		{
-			std::cout << "search a contact and print it" << std::endl;
 			PrintAllContact();
 			printChosenContact();
 		}
