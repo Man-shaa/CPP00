@@ -6,7 +6,7 @@
 /*   By: msharifi <msharifi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 18:13:58 by msharifi          #+#    #+#             */
-/*   Updated: 2023/04/24 14:12:55 by msharifi         ###   ########.fr       */
+/*   Updated: 2023/04/24 16:09:36 by msharifi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,15 @@ class Contact
 		std::string	_nickname;
 		std::string	_phoneNumber;
 		std::string	_darkestSecret;
-		// int			_index;
+		int			_index;
 
 	public:
 		Contact(void);
 		~Contact(void);
 		std::string	ParseStringInput(std::string input);
-		void	InitContact(void);
+		void	InitContact(int index);
 		void	PrintContact(void);
+		void	PrintContactRow(void);
 };
 
 #endif

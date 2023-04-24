@@ -6,7 +6,7 @@
 /*   By: msharifi <msharifi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 18:13:46 by msharifi          #+#    #+#             */
-/*   Updated: 2023/04/24 14:41:29 by msharifi         ###   ########.fr       */
+/*   Updated: 2023/04/24 16:15:00 by msharifi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,11 @@ std::string	Contact::ParseStringInput(std::string input)
 	return (input);
 }
 
-void	Contact::InitContact(void)
+void	Contact::InitContact(int index)
 {
 	std::string 	input;
 
+	_index = index;
 	std::cout << "Enter you first name : ";
 	getline(std::cin, input);
 	_firstName = ParseStringInput(input);
@@ -63,9 +64,18 @@ void	Contact::InitContact(void)
 
 void	Contact::PrintContact(void)
 {
+	std::cout << "INDEX : " << _index << std::endl << std::endl;
 	std::cout << "First Name : " << _firstName << std::endl;
 	std::cout << "Last Name : " << _lastName << std::endl;
 	std::cout << "Nickname : " << _nickname << std::endl;
 	std::cout << "Phone number : " << _phoneNumber << std::endl;
 	std::cout << "Darkest secret : " << _darkestSecret << std::endl;
+}
+
+void	Contact::PrintContactRow(void)
+{
+	std::cout << std::endl << _index;
+	std::cout << " | " << _firstName;
+	std::cout << " | " << _lastName;
+	std::cout << " | " << _nickname << std::endl;
 }
