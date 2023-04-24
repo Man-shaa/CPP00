@@ -6,7 +6,7 @@
 /*   By: msharifi <msharifi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 16:48:08 by msharifi          #+#    #+#             */
-/*   Updated: 2023/04/24 14:47:17 by msharifi         ###   ########.fr       */
+/*   Updated: 2023/04/24 14:49:07 by msharifi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	PhoneBook::CatchInstruction(void)
 	std::string	input;
 
 	nContact = 0;
+	while (input.empty() == true)
+		getline(std::cin, input);
 	while (input.compare("EXIT") != 0)
 	{
 		if (input.compare("ADD") == 0)
