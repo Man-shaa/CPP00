@@ -6,7 +6,7 @@
 /*   By: msharifi <msharifi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 18:13:58 by msharifi          #+#    #+#             */
-/*   Updated: 2023/04/25 14:44:44 by msharifi         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:53:48 by msharifi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <string>
 # include <cmath>
+
+int	VerifEof();
 
 class Contact
 {

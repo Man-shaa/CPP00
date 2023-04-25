@@ -6,7 +6,7 @@
 /*   By: msharifi <msharifi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 16:48:08 by msharifi          #+#    #+#             */
-/*   Updated: 2023/04/24 16:30:30 by msharifi         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:56:01 by msharifi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	PhoneBook::CatchInstruction(void)
 	nContact = 0;
 	newIndex = 0;
 	getline(std::cin, input);
-	while (input.compare("EXIT") != 0)
+	while (input.compare("EXIT") != 0 && std::cin.eof() == false)
 	{
 		if (input.compare("ADD") == 0)
 		{
@@ -63,6 +63,8 @@ void	PhoneBook::printChosenContact(void)
 	int			index;
 
 	getline(std::cin, input);
+	if (VerifEof())
+		return ;
 	while (input.size() != 1 || input.compare("0") < 0 || input.compare("0") >= 8)
 	{
 		std::cout << "Index must be between 0 and 7" << std::endl;

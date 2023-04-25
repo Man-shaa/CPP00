@@ -6,7 +6,7 @@
 /*   By: msharifi <msharifi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 18:13:46 by msharifi          #+#    #+#             */
-/*   Updated: 2023/04/25 14:55:48 by msharifi         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:55:20 by msharifi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,44 @@ void	Contact::InitContact(int index)
 	std::cout << "Enter you first name : ";
 	getline(std::cin, input);
 	_firstName = ParseStringInput(input);
+	if (VerifEof())
+		return ;
+	
+		
 
 	std::cout << "Enter you last name : ";
 	getline(std::cin, input);
 	_lastName = ParseStringInput(input);
+	if (VerifEof())
+		return ;
 
 	std::cout << "Enter you nickname : ";
 	getline(std::cin, input);
 	_nickname = ParseStringInput(input);
+	if (VerifEof())
+		return ;
 
 	std::cout << "Enter your phone number : ";
 	getline(std::cin, input);
 	_phoneNumber = ParseStringInput(input);
+	if (VerifEof())
+		return ;
 
 	std::cout << "Enter your darkest sercret : ";
 	getline(std::cin, input);
 	_darkestSecret = ParseStringInput(input);
+	if (VerifEof())
+		return ;
+}
+
+int	VerifEof()
+{
+	if (std::cin.eof() == true)
+	{
+		std::cout << "Cannot read form stdin !" << std::endl;
+		return (1);
+	}
+	return (0);
 }
 
 void	Contact::PrintContact(void)
@@ -74,8 +96,6 @@ void	Contact::PrintContact(void)
 
 void	Contact::PrintContactRow(void)
 {
-	std::string	str;
-
 	std::cout << std::endl << _index << "         ";
 	_firstName.append("          ", 10 - _firstName.size());
 	std::cout << "|" << _firstName;
