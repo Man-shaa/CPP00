@@ -6,14 +6,16 @@
 /*   By: msharifi <msharifi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 18:13:58 by msharifi          #+#    #+#             */
-/*   Updated: 2023/04/24 16:09:36 by msharifi         ###   ########.fr       */
+/*   Updated: 2023/04/25 14:44:44 by msharifi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_CLASS_HPP
 # define CONTACT_CLASS_HPP
 
-#include <iostream>
+# include <iostream>
+# include <string>
+# include <cmath>
 
 class Contact
 {

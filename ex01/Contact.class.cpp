@@ -6,7 +6,7 @@
 /*   By: msharifi <msharifi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 18:13:46 by msharifi          #+#    #+#             */
-/*   Updated: 2023/04/24 16:27:07 by msharifi         ###   ########.fr       */
+/*   Updated: 2023/04/25 14:55:48 by msharifi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,13 @@ void	Contact::PrintContact(void)
 
 void	Contact::PrintContactRow(void)
 {
-	std::cout << std::endl << _index;
-	std::cout << " | " << _firstName;
-	std::cout << " | " << _lastName;
-	std::cout << " | " << _nickname << std::endl;
+	std::string	str;
+
+	std::cout << std::endl << _index << "         ";
+	_firstName.append("          ", 10 - _firstName.size());
+	std::cout << "|" << _firstName;
+	_lastName.append("          ", 10 - _lastName.size());
+	std::cout << "|" << _lastName;
+	_nickname.append("          ", 10 - _nickname.size());
+	std::cout << "|" << _nickname << std::endl;
 }
