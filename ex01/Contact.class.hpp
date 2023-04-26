@@ -6,7 +6,7 @@
 /*   By: msharifi <msharifi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 18:13:58 by msharifi          #+#    #+#             */
-/*   Updated: 2023/04/25 15:53:48 by msharifi         ###   ########.fr       */
+/*   Updated: 2023/04/26 13:52:08 by msharifi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONTACT_CLASS_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <string>
 # include <cmath>
 
@@ -28,11 +29,11 @@ class Contact
 		std::string	_phoneNumber;
 		std::string	_darkestSecret;
 		int			_index;
+		std::string	_ParseStringInput(std::string input);
 
 	public:
 		Contact(void);
 		~Contact(void);
-		std::string	ParseStringInput(std::string input);
 		void	InitContact(int index);
 		void	PrintContact(void);
 		void	PrintContactRow(void);

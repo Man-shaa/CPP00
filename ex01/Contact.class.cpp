@@ -6,7 +6,7 @@
 /*   By: msharifi <msharifi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 18:13:46 by msharifi          #+#    #+#             */
-/*   Updated: 2023/04/25 15:55:20 by msharifi         ###   ########.fr       */
+/*   Updated: 2023/04/26 13:57:10 by msharifi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,10 @@ Contact::~Contact(void)
 	return ;
 }
 
-std::string	Contact::ParseStringInput(std::string input)
+std::string	Contact::_ParseStringInput(std::string input)
 {
 	if (input.size() > 10)
-	{
-		input = input.substr(0, 10);
-		input.replace(9, 1, ".");
-	}
+		input = input.substr(0, 9) + ".";
 	else if (input.empty())
 		input = "Default";
 	return (input);
@@ -42,34 +39,37 @@ void	Contact::InitContact(int index)
 
 	_index = index;
 	std::cout << "Enter you first name : ";
-	getline(std::cin, input);
-	_firstName = ParseStringInput(input);
+	getline(std::cin, _firstName);
+	if (_firstName.empty() == true)
+		_firstName = "default";
 	if (VerifEof())
 		return ;
-	
-		
 
 	std::cout << "Enter you last name : ";
-	getline(std::cin, input);
-	_lastName = ParseStringInput(input);
+	getline(std::cin, _lastName);
+	if (_lastName.empty() == true)
+		_lastName = "default";
 	if (VerifEof())
 		return ;
 
 	std::cout << "Enter you nickname : ";
-	getline(std::cin, input);
-	_nickname = ParseStringInput(input);
+	getline(std::cin, _nickname);
+	if (_nickname.empty() == true)
+		_nickname = "default";
 	if (VerifEof())
 		return ;
 
 	std::cout << "Enter your phone number : ";
-	getline(std::cin, input);
-	_phoneNumber = ParseStringInput(input);
+	getline(std::cin, _phoneNumber);
+	if (_phoneNumber.empty() == true)
+		_phoneNumber = "default";
 	if (VerifEof())
 		return ;
 
 	std::cout << "Enter your darkest sercret : ";
-	getline(std::cin, input);
-	_darkestSecret = ParseStringInput(input);
+	getline(std::cin, _darkestSecret);
+	if (_darkestSecret.empty() == true)
+		_darkestSecret = "default";
 	if (VerifEof())
 		return ;
 }
@@ -96,11 +96,8 @@ void	Contact::PrintContact(void)
 
 void	Contact::PrintContactRow(void)
 {
-	std::cout << std::endl << _index << "         ";
-	_firstName.append("          ", 10 - _firstName.size());
-	std::cout << "|" << _firstName;
-	_lastName.append("          ", 10 - _lastName.size());
-	std::cout << "|" << _lastName;
-	_nickname.append("          ", 10 - _nickname.size());
-	std::cout << "|" << _nickname << std::endl;
+	std::cout << std::setw(10) << _index << std::flush;
+	std::cout << '|' << std::setw(10) << _ParseStringInput(_firstName) << std::flush;
+	std::cout << '|' << std::setw(10) << _ParseStringInput(_lastName) << std::flush;
+	std::cout << '|' << std::setw(10) << _ParseStringInput(_nickname) << std::flush << '|' << std::endl;
 }
